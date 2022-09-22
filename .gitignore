@@ -8,6 +8,7 @@
 !/scripts
 !/scripts/**
 
+!/README.md
 !/go.mod
 !/go.sum
 !/config.yml
