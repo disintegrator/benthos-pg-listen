@@ -1,0 +1,7 @@
+input:
+  postgres_listen:
+    dsn: postgres://postgres@localhost:5432/postgres
+    channel: outbox_items__insert
+
+output:
+  stdout: {}

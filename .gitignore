@@ -1,0 +1,15 @@
+*
+!.gitignore
+
+!/internal
+!/internal/**
+!/postgres
+!/postgres/**
+!/scripts
+!/scripts/**
+
+!/go.mod
+!/go.sum
+!/config.yml
+!/main.go
+!/Makefile

@@ -1,3 +1,7 @@
+.PHONY: build
+build: main.go
+	@go build -o benthos ./main.go
+
 .PHONY: start-postgres
 start-postgres:
 	@./scripts/start-postgres.sh
