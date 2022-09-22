@@ -13,3 +13,7 @@ stop-postgres:
 .PHONY: psql
 psql:
 	@./scripts/psql.sh
+
+.PHONY: insert-item
+insert-item:
+	@./scripts/insert-item.sh
