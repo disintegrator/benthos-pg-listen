@@ -3,6 +3,11 @@
 This project demonstrates how to build a Benthos plugin to work with
 PostgreSQL's `LISTEN` feature.
 
+## Prerequisites
+
+- Docker
+- Go 1.19+
+
 ## Build
 
 - Clone this repository
