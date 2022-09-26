@@ -32,9 +32,7 @@ func mainErr() error {
 		return errors.New("-channel <name> is required")
 	}
 
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	ctx, sigCancel := signal.NotifyContext(ctx, syscall.SIGINT, syscall.SIGQUIT, syscall.SIGTERM)
+	ctx, sigCancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGQUIT, syscall.SIGTERM)
 	defer sigCancel()
 
 	conn, err := pgx.Connect(ctx, *dsn)
