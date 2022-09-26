@@ -7,10 +7,12 @@
 !/postgres/**
 !/scripts
 !/scripts/**
+!/cmd
+!/cmd/**
 
+!/.env
 !/README.md
 !/go.mod
 !/go.sum
 !/config.yml
-!/main.go
 !/Makefile

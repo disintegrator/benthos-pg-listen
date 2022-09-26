@@ -1,10 +1,15 @@
 .PHONY: build
 build:
-	@go build -o benthos ./main.go
+	@go build -o bin/basic ./cmd/basic/main.go
+	@go build -o bin/benthos ./cmd/benthos/main.go
+
+.PHONY: start-basic
+start-basic: build
+	@./bin/basic -dsn postgres://postgres@localhost:5432/postgres -channel outbox_items__insert
 
 .PHONY: start-benthos
 start-benthos: build
-	@./benthos -c ./config.yml
+	@./bin/benthos --env-file .env -c ./config.yml
 
 .PHONY: start-postgres
 start-postgres:

@@ -1,7 +1,16 @@
 input:
   postgres_listen:
-    dsn: postgres://postgres@localhost:5432/postgres
-    channel: outbox_items__insert
+    dsn: ${DSN}
+    channel: ${CHANNEL}
+
+pipeline:
+  processors:
+    - mutation: |
+        root = "[%s @ %s]: %s".format(
+          meta("pg_listen_channel"),
+          meta("pg_listen_pid"),
+          content()
+        )
 
 output:
   stdout: {}
