@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
@@ -60,6 +61,14 @@ func mainErr() error {
 }
 
 func doSomethingWithNotification(n *pgconn.Notification) error {
-	fmt.Printf("[%s @ %d]: %s\n", n.Channel, n.PID, n.Payload)
+	var payload struct {
+		Message string `json:"message"`
+	}
+	err := json.Unmarshal([]byte(n.Payload), &payload)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("[%s @ %d]: %s\n", n.Channel, n.PID, payload.Message)
 	return nil
 }
