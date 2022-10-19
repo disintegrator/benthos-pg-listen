@@ -17,3 +17,6 @@
 !/config.yml
 !/Makefile
 !/config*.yml
+!/mocks.json
+!/package.json
+!/package-lock.json

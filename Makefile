@@ -11,6 +11,11 @@ start-basic: build
 start-benthos: build
 	@./bin/benthos --env-file .env -c ./config.yml
 
+.PHONY: start-mock
+start-mock:
+	@npm i
+	@npm start
+
 .PHONY: start-postgres
 start-postgres:
 	@./scripts/start-postgres.sh

@@ -1,0 +1,15 @@
+{
+  "name": "benthos-pg-listen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mb start --nologfile --configfile ./mocks.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mountebank": "^2.8.1"
+  }
+}

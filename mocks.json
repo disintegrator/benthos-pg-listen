@@ -1,0 +1,99 @@
+{
+  "port": 4545,
+  "protocol": "http",
+  "defaultResponse": {
+    "statusCode": 404,
+    "body": {
+      "error": "Not found"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "stubs": [
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 500,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "error": "Unexpected error!"
+            }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "equals": {
+            "path": "/fail",
+            "method": "POST"
+          }
+        }
+      ]
+    },
+    {
+      "responses": [
+        {
+          "repeat": 4,
+          "is": {
+            "statusCode": 500,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "error": "Unexpected error!"
+            }
+          }
+        },
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "error": "Sure, why not?!"
+            }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "equals": {
+            "path": "/usually-fail",
+            "method": "POST"
+          }
+        }
+      ]
+    },
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "msg": "Received!"
+            }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "equals": {
+            "path": "/",
+            "method": "POST",
+            "headers": {
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
