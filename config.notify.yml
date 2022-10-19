@@ -9,7 +9,7 @@ pipeline:
         root = "[%s @ %s]: %s".format(
           meta("pg_listen_channel"),
           meta("pg_listen_pid"),
-          content()
+          this.message
         )
 
 output:
