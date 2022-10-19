@@ -16,3 +16,4 @@
 !/go.sum
 !/config.yml
 !/Makefile
+!/config*.yml
