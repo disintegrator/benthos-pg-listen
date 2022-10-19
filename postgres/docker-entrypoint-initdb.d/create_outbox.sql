@@ -11,7 +11,7 @@ CREATE OR REPLACE FUNCTION notify_outbox_items_insert()
    LANGUAGE plpgsql
 AS $$
 BEGIN
-   PERFORM pg_notify('outbox_items__insert', 'inserted a row');
+   PERFORM pg_notify('outbox_items__insert', NEW.payload::varchar);
    RETURN NULL;
 END;
 $$;
@@ -19,5 +19,5 @@ $$;
 CREATE TRIGGER outbox_items__insert
 AFTER INSERT ON outbox_items
 REFERENCING NEW TABLE AS outbox_items__inserted
-FOR EACH STATEMENT
+FOR EACH ROW
 EXECUTE FUNCTION notify_outbox_items_insert();
