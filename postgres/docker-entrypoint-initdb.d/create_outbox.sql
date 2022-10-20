@@ -21,3 +21,6 @@ AFTER INSERT ON outbox_items
 REFERENCING NEW TABLE AS outbox_items__inserted
 FOR EACH ROW
 EXECUTE FUNCTION notify_outbox_items_insert();
+
+-- throw a bunch of rows into the table!
+-- INSERT INTO outbox_items SELECT id FROM generate_series(1, 101) AS g (id);
