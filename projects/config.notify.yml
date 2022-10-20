@@ -1,0 +1,18 @@
+input:
+  postgres_listen:
+    dsn: ${DSN}
+    channel: ${IN_CHANNEL}
+
+pipeline:
+  processors:
+    - mutation: |
+        root = "[%s @ %s]: %s".format(
+          meta("pg_listen_channel"),
+          meta("pg_listen_pid"),
+          this.message
+        )
+
+output:
+  postgres_notify:
+    dsn: ${DSN}
+    channel: ${OUT_CHANNEL}

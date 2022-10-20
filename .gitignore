@@ -3,6 +3,8 @@
 
 !/internal
 !/internal/**
+!/projects
+!/projects/**
 !/postgres
 !/postgres/**
 !/scripts
