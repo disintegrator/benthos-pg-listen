@@ -9,7 +9,7 @@ start-basic: build
 
 .PHONY: start-benthos
 start-benthos: build
-	@./bin/benthos --env-file .env -c ./config.yml
+	@./scripts/start-benthos.sh
 
 .PHONY: start-mock
 start-mock:

@@ -6,6 +6,7 @@ This project demonstrates how to build a Benthos plugin to work with PostgreSQL'
 
 - Docker
 - Go 1.19+
+- (Optional) [Gum](https://github.com/charmbracelet/gum)
 
 ## Build
 
