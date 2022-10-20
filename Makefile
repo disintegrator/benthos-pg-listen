@@ -31,3 +31,7 @@ psql:
 .PHONY: insert-item
 insert-item:
 	@./scripts/insert-item.sh
+
+.PHONY: insert-item-loop
+insert-item-loop:
+	@./scripts/insert-item-loop.sh
