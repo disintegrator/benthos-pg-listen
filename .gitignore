@@ -12,6 +12,9 @@
 !/cmd
 !/cmd/**
 
+!/.vscode
+!/.vscode/launch.json
+
 !/.env
 !/README.md
 !/go.mod
